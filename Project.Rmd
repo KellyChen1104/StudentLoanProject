@@ -606,12 +606,19 @@ plot(importance_2, main="Variable importance for \n the amount of student loan")
 ```
 Here we can see that a higher student loan amount most likely leads to a credit denial, followed by foreclosure and late debt payment. 
 
-Result Summary
+#  Result Summary
 In part 1, we can see that the distribution of student loan amount is skewed to the left, which means for people who get student loans, the amount on average is quite high. We also observed the highest proportion of people who have student loans is people with bachelor’s degrees among different education levels (more than 50% of student loan holders have graduated from high school or higher educational institutions); married people among different marital statuses; while people among different races. 
+
 
 From the result of comparing R-squared value between four models, I concluded that random forest has the highest R-square value which means it is the best fitting model out of all four models. Also, the random forest model has a really low MSE of 0.1391496, which means we can choose this model to predict student loan amount using all the variables I chose. Out of all the variables, I also found that the highest received education is the most important variable, this means this variable has the highest influence on student loan compared to others. The higher the education people receive, the more likely the family is going to have a higher student loan amount. 
 
 In part 2, the random forest again performs the best when predicting financial struggles, with the lowest RMSE of 0.053, which is really good considering the scale of the data. From the importance table, I concluded that a higher student loan amount more likely results in credit denied than other situations. If a family has a high student loan debt, they would possibly end up facing credit denied, foreclose and late debt payment. 
+
+# Discussion
+One goal of this project is to predict the student loan amount based on the family attributes, which random forest does a good job on. Apart from the model prediction, different data visualizations also helped to see how student loan amount is different based on different family characteristics.  Another goal is to predict what type of financial hardship a family is likely to face based on their student loan amount. The random forest model does a good job on this prediction as well. 
+
+Due to the limitation of this project, only a few variables were selected to predict student loans based on my assumption. More correlations can be revealed if all the variables are included. For the second part of the project, financial hardship can be defined as a qualitative outcome, predicted by the same variables chosen in part 2 using classification models. A new variable of financial hardship can then be generated and can be used to find if there is a linear relationship between the student loan amount and financial hardship. 
+
 
 \newpage
 # Reference
