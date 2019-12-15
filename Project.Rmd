@@ -1,5 +1,5 @@
 ---
-title: "Project"
+title: "Final project, Student loan dept analysis"
 date: "02/12/2019"
 author: "Kelly Chen"
 header-includes:
@@ -37,26 +37,23 @@ p16i6 <- read_dta("Data/p16i6.dta")
 
 # Introduction
 
-With student loan debt skyrocketing in recent years, many families in the US are struggling to pay off the student loan. This project aims to provide information on both sides. For families that potentially want to take a student loan, they need a clear picture of how the student loan is going to affect the family financially in the future. What the financial struggles they are going through? For US government or policy-makers to make better policies to relieve the burden of student loans on family, they need to know what kind of families are more likely to have a high student loan amount, so they design a better plan to fit the families or adjust the bar for entering an affordable plan.
-
-The project consists of two parts. The first part is finding which features of a family can predict the amount of student loan debt, among them which one has the biggest impact. The second part is to identify which financial hardship the education loan most likely leads to.
+With student loan debt skyrocketing in recent years, many families in the US are struggling to pay off the student loan. This project aims to provide information on both sides. For families that potentially want to take a student loan, they need a clear picture of how the student loan is going to affect the family financially in the future. What the financial struggles they are going through? For US government or policy-makers to make better policies to relieve the burden of student loans on family, they need to know what kind of families are more likely to have a high student loan amount, so they design a better plan to fit the families or adjust the bar for entering an affordable plan. The project consists of two parts. The first part is finding which features of a family can predict the amount of student loan debt, among them which one has the biggest impact. The second part is to identify which financial hardship the education loan most likely leads to.
 
 
 # Problem Statement and Background
 
 Affordability of student loans is a rising topic in the United States in recent years. The expense of education — tuition fee keeps rising every year but it does not stop Americans from borrowing money to go to school. Today, more than 44 million people carry over 1.5 trillion dollar of outstanding student loan debt, an amount that exceeds all other types of non-mortgage loan debt(A $1.5 Trillion Crisis: Protecting Student Borrowers and Holding Student Loan Servicers Accountable, 2019). While it is good to see that people attach more importance to education, and are willing to take a risk for academic advancement. However, many found themselves stuck in an unexpected financial hardship after getting a student loan. The Pew Charitable Trusts published a report on “Student Loan System Presents Repayment Challenges” in 2019, in which it analyzed 400,0000 people in Texas who are in student debt, and found out that many are in distress and are struggling to pay back the loan. Approximately a quarter of borrowers defaulted within five years of entering repayment(The Pew Charitable Trusts, 2019). The thesis “student loan debt and house household financial hardship: an analysis using the 2016 survey of consumer finances” concluded that student loan contributes to household financial hardship, using the same dataset this project uses(AlQaisi & Kern, 2018). This project, however, focuses on the correlation between family features and student loan amount, and the correlation between the student loan amount and financial hardship indicators.  
 
-
 # Data
 
-The data for this project comes from The Survey of Consumer Finances in 2016 ( which can be downloaded here https://www.federalreserve.gov/econres/scfindex.htm). The Survey of Consumer Finances(SFC) is a dataset that contains all the data needed for the analysis and is provided by The Federal Reserve to help the government and ultimately the public to understand the financial condition of families in the United States. This data is based on a survey of six thousand households in the US about their finance. All the variables in the dataset are survey questions, the unit of observations is the US household. This dataset also comes with a codebook, which can also be downloaded on the same website.  In total, there are 31240 observations and 5320 variables. For the first part of the project, I chose 15 variables as predictors of the student loan amount. They are: Highest received education, Confidence in the US economy,  Knowledge about own finance, Loan amount, Willingness to take financial risk, How many loans, Owe money to purchase property, Trust fund, Main bank account balance, Income, Life insurance, Balance of saving account, Value of certificate of deposit, Value of saving bonds,  Market value of stock neutral funds. These are the financial indicators of a family. Additionally to predictors, basic demographic characteristics variables are also selected, including Age, Race, Gender of the head of the family,  Marital status and Kind of housing. These variables are not used as predictors but the relationships between them and student loan amounts are graphed. For the second part of the project, I chose 6 variables to present a financial hardship. They are Loan amount, Credit denied, Late debt payment, Payday loan, Bankruptcy, Foreclosure. These variables are chosen based on the belief that they can well represent the financial hardship that a family faces.
+The data for this project comes from The Survey of Consumer Finances in 2016 ( which can be downloaded here https://www.federalreserve.gov/econres/scfindex.htm). The Survey of Consumer Finances(SFC) is provided by the Federal Reserve to help the government and ultimately the public to understand the financial condition of families in the United States. All the variables in the dataset are survey questions, the unit of observations is the US household. This dataset also comes with a codebook, which can also be downloaded on the same website.  In total, there are 31240 observations and 5320 variables. For the first part of the project, I chose 15 variables as predictors of the student loan amount. They are: Highest received education, Confidence in the US economy,  Knowledge about own finance, Loan amount, Willingness to take financial risk, How many loans, Owe money to purchase property, Trust fund, Main bank account balance, Income, Life insurance, Balance of saving account, Value of certificate of deposit, Value of saving bonds,  Market value of stock neutral funds. These are the financial indicators of a family. Basic demographic characteristics variables are also selected, including Age, Race, Gender of the head of the family,  Marital status and Kind of housing. The relationships between them and student loan amounts are graphed. For the second part of the project, I chose 6 variables to present a financial hardship. They are Loan amount, Credit denied, Late debt payment, Payday loan, Bankruptcy, Foreclosure. These variables are chosen based on the belief that they can well represent the financial hardship that a family faces.
 
-When it comes to data wrangling, most of the work focused on interpreting the codebook. According to the codebook, I selected the above variables, rename all the columns as their original meanings. For categorical values, I also renamed them based on their meanings.  Some answers in the survey are not applicable or answered with “don’t know/not sure”, and they were given the value of 0 in the dataset. These values are treated as missing value for the analysis and are turned into N/A during the data wrangling stage.
+When it comes to data wrangling, most of the work focused on interpreting the codebook. According to the codebook, I selected the above variables, rename all the columns as their original meanings. For categorical values, I also renamed them based on their meanings.  Some answers in the survey are not applicable or answered with “don’t know/not sure”, and they were given the value of 0 in the dataset. These values are treated as the missing value for the analysis and are turned into N/A during the data wrangling stage.
+
  
-# Analysis
+# Analysis and results
 
-The first step for analysis is to find the relationship between the dependent variable (student loan amount) and independent variables.  For categorical variables such as race, marital status, Highest received education, which cannot be assigned to a certain level of loan amount relevance, I graphed their relationships to give a clear illustration of the difference of student loan amount between different groups.
-
+The first step for analysis is to find the relationship between the dependent variable (student loan amount) and independent variables.  For categorical variables that cannot be assigned to a certain level of loan amount relevance, I graphed their relationships to give a clear illustration of the difference of student loan amount between different groups.
 
 ```{r, echo=FALSE}
 
@@ -212,19 +209,16 @@ loan_frequency <- p16i6_el_translated %>%
  
 ```
 
-
-
 ```{r,out.width = '60%',message=FALSE}
-  
 race_plot
 loan_frequency
 ```
  
-```{r,out.width = '100%',message=FALSE}
+```{r,out.width = '80%',message=FALSE}
 pie
 ```
  
-The second step is to prepare the dataset for machine learning, which means I partition the dataset into the training set and the testing set. The training set is 75% of the data, which I use to investigate and train models. The testing set has 25% of the data, which I use to test out the accuracy of the model prediction. In order to find the best fitting model, I first preprocess the training data. The purpose of data preprocessing is to scale and transform the continuous variables, so the data can fall within the same numerical range; to impute the missing data for better-estimated results; to turn categorical variables into dummy variables to fit into the model in the next step. With the help of Cran package, a framework for creating and preprocess design matrices, I transform the variables to have a mean of 0 and variance of 1; impute the missing data and transformed categorical data. These changes are also applied to both training data and testing data in order to calculate out of sample predictions. After preprocessing, we can see the distribution and variation of each variable as follows:   
+The second step is to prepare the dataset for machine learning, which means I partition the dataset into the training set and the testing set. The training set is 75% of the data, which I use to investigate and train models. The testing set has 25% of the data, which I use to test out the accuracy of the model prediction. In order to find the best fitting model, I first preprocess the training data. With the help of Cran package, a framework for creating and preprocess design matrices, I transform the variables to have a mean of 0 and variance of 1; impute the missing data and transformed categorical data into dummy variables. These changes are also applied to both training data and testing data in order to calculate out of sample predictions. After preprocessing, we can see the distribution and variation of each variable as follows:    
 
 
 ```{r, echo=FALSE,message=FALSE,warning=FALSE}
@@ -330,7 +324,7 @@ training2_plot
 ```
 
  
-The third step is to establish the correlation between the dependent variable and independent variables. Here I plotted a correlation graph, from which we can see that the student loan amount and all the variables are correlated except for Trust Fund. Since there is no correlation between the Trust Fund and student loan amount, I dropped this variable.  
+The third step is to establish the correlation between the dependent variable and independent variables. Here I plotted a correlation graph, from which we can see that the student loan amount and all the variables are correlated except for Trust Fund. Since there is no correlation between the Trust Fund and student loan amount, I dropped this variable.   
 
 ```{r, out.width= '70%',message=FALSE,warning=FALSE}
 corplot
@@ -411,11 +405,7 @@ mod_lm_1 <-
         trControl = control_conditions # Cross validation conditions
   )
 ```
-
- 
-
-Since we are predicting a continuous/interval-based outcome ——  student loan amount, I decided to run 4 different regression models random forest, classification and regression trees, linear regression and K nearest neighbors, to test out, which model performs the best and can potentially be used to predict student loan amount using independent variables.  After generating the models from training data, I calculated the R-square value in testing data using the models. From the result, we can tell that the Random Forest performs the best with the highest R-square value close to 0.25. R-square measures the goodness of fit of the model, the higher the R-square value is, the better the model fits.  
-
+I decided to run 4 different regression models random forest, classification and regression trees, linear regression and K nearest neighbors, to test out, which model performs the best and can potentially be used to predict student loan amount using independent variables.  After generating the models from training data, I calculated the R-square value in testing data using the models. From the result, we can tell that the Random Forest performs the best with the highest R-square value close to 0.25. R-square measures the goodness of fit of the model, the higher the R-square value is, the better the model fits.  
 ```{r, echo = FALSE,message=FALSE,warning=FALSE}
 
 mod_list1 <-
@@ -456,7 +446,7 @@ importance_1 <- varImp(mod_rf_1)
 
 ```
 
-```{r, out.width='70%'}
+```{r, out.width='65%'}
 plot(importance_1, main="Variable importance for \n loan prediction")
 
 ```
@@ -523,14 +513,6 @@ hardship_summary <- training_hardship_loan2 %>%
 
 ```
 
-
-
-```{r,message=FALSE,warning=FALSE,out.width='60%'}
-hardship_summary
-```
-
- 
-
 ```{r, echo=FALSE,message=FALSE,warning=FALSE}
 #Cross validation
 set.seed(1988)  
@@ -560,7 +542,6 @@ mod_rf_2 <-
   )
 
 ```
- 
 
 ```{r, echo=FALSE,message=FALSE,warning=FALSE}
 
@@ -576,7 +557,6 @@ mod_knn_2 <-
 
 ```
  
-
 ```{r, echo=FALSE,message=FALSE,warning=FALSE}
 
   mod_cart_2 <-
@@ -590,7 +570,6 @@ mod_knn_2 <-
   
 ```
  
-
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 
 mod_list2 <-
@@ -642,7 +621,3 @@ In part 2, the random forest again performs the best when predicting financial s
 A $1.5 Trillion Crisis: Protecting Student Borrowers and Holding Student Loan Servicers Accountable: Hearings before the United States House Committee	on Financial Services (2019) (Testimony of  Ashely C. Harrington).
 
 The Pew Charitable Trusts report. (2019). Student Loan System Presents Repayment Challenges. Retrieved from https://www.pewtrusts.org/-/media/assets/2019/11/psbs_report.pdf?la=en&hash=F9E369C81CB858FCE2A0B468087236CB3ACD65C6
-
-
-
- 
